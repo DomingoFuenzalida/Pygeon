@@ -3,6 +3,10 @@ import pygame
 import sys
 import random
 
+#------------------------- Inputs ----------------------------
+
+cant = int(input("Ingrese cantidad de habitaciones: "))
+
 #------------------------ Iniciador --------------------------
 pygame.init()
 
@@ -21,6 +25,11 @@ text_color = (255, 255, 255)
 X2 = random.randint(X  - 200, X + 200)
 Y2 = random.randint(Y - tamaño - 100, Y - tamaño-10)
 
+#--------------------- Coordenadas Cuadrados -----------------
+
+coo = []
+coo.append([X,Y])
+coo.append([X2,Y2])
 
 
 #--------------------- Configurar ventana --------------------
