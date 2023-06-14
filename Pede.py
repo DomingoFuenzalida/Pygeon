@@ -4,11 +4,11 @@ import random
 def execute(prob_bosss, prob_loots):
     random = random.randint(0, 1)
     if random <= prob_bosss:
-        inside = return("B")
+        inside = return ("B")
     elif random <= prob_loots + prob_bosss:
-        inside = return("B")
+        inside = return ("L")
     else:
-        inside = return("B")
+        inside = return ("F")
 
 def inside_room(posiciones, x, y, cuadrado_sizex, cuadrado_sizey, cuadrado, prob_boss, prob_item, screen, font):
     for i, pos in enumerate(posiciones):
