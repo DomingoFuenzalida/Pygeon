@@ -93,7 +93,7 @@ def triangular():
     plt.title('Árbol de Expansión Mínima y Loops')
     plt.show()
 
-triangular()
+#triangular()
 
 
 
