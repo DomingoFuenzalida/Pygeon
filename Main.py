@@ -21,5 +21,9 @@ while True:
         F.habitacion(int(user[1]),int(user[2]),int(user[3]))
     elif "coo" in user:
         print(F.coordenadas())
+    elif "probaitem" in user:
+        F.probit(float(user[1]))
+    elif "probaboss" in user:
+        F.probbo(float(user[1]))
         
 print("Programa finalizado")
