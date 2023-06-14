@@ -59,8 +59,7 @@ for arista in aristas:
         unir_componentes(componentes, nodo1, nodo2)
 
 # Visualizar el árbol de expansión mínima
-plt.triplot(coor[:, 0], coor[:, 1], triangulacion.simplices)
-plt.plot(coor[:, 0], coor[:, 1], 'o')
+plt.figure()
 for arista in aristas_arbol:
     punto1 = coor[arista[0]]
     punto2 = coor[arista[1]]
