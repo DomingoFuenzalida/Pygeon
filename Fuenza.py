@@ -19,7 +19,7 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Cuadrados Numerados")
 
 # Color de fondo
-background_color = (255, 255, 255)
+background_color = (0, 0, 0)
 
 # Verificar si dos cuadrados se cruzan
 def se_cruzan(x1, y1, x2, y2, size):
