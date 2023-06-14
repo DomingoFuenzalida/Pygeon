@@ -5,9 +5,9 @@ def execute(prob_bosss, prob_loots):
     random = random.randint(0, 1)
     if random <= prob_bosss:
         return("B")
-    else if random <= prob_loots + prob_bosss:
+    elif random <= prob_loots + prob_bosss:
         return("L")
-    else>
+    else:
         return("P")
 
 def inside_room(posiciones, x, y, cuadrado_sizex, cuadrado_sizey, cuadrado, prob_boss, prob_item):
