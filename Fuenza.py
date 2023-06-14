@@ -11,6 +11,21 @@ height =  pygame.display.Info().current_h-60
 posiciones = []
 probb = 0.3
 probi = 0.3
+def probit(prob):
+    global probi
+    global probb
+    if probb + prob <= 1:
+        probi = prob
+    else:
+        print("La probabilidad es muy alta, intenta con otro número o cambiano la de los boses")
+
+def probbo(prob):
+    global probb
+    global probi
+    if probi + prob <= 1:
+        probb = prob
+    else:
+        print("La probabilidad es muy alta, intenta con otro número o cambiano la de los items")
 
 # Tamaño de los cuadrados
 cuadrado_sizex = 50
@@ -107,6 +122,9 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
     font = pygame.font.Font(None, 25)
     if se_cruza == False:
         try:
+            contenido = []
+            for i, pos in enumerate(posiciones):
+                contenido.append(P.execute(probb, probi))
             while True:
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
@@ -114,7 +132,7 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
 
                 screen.fill(background_color)
                 for i, pos in enumerate(posiciones):
-                    inside = font.render(P.execute(probb, probi), True, (255, 255, 255)) 
+                    inside = font.render(contenido[i], True, (255, 255, 255)) 
                     if i == 0:
                         inside = font.render("L", True, (255, 255, 255))
                     x, y = pos
