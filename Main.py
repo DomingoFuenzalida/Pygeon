@@ -19,5 +19,7 @@ while True:
         F.fondo(int(user[1]),int(user[2]),int(user[3]))
     elif "room" in user:
         F.habitacion(int(user[1]),int(user[2]),int(user[3]))
+    elif "coo" in user:
+        print(F.coordenadas())
         
 print("Programa finalizado")

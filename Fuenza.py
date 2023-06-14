@@ -1,5 +1,6 @@
 import pygame
 import random
+import Pede as P
 
 pygame.init()
 
@@ -8,7 +9,8 @@ width = pygame.display.Info().current_w
 height =  pygame.display.Info().current_h-60
 
 posiciones = []
-
+probb = 0.3
+probi = 0.3
 
 # Tamaño de los cuadrados
 cuadrado_sizex = 50
@@ -98,11 +100,11 @@ def coordenadas():
 
 
 # Cargar una fuente de texto
-def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado):
+def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi):
     pygame.init()
     screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption("Cuadrados Numerados")
-    font = pygame.font.Font(None, 36)
+    font = pygame.font.Font(None, 25)
     if se_cruza == False:
         try:
             while True:
@@ -111,25 +113,37 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                         pygame.quit()
 
                 screen.fill(background_color)
-
-                # Dibujar los cuadrados en las posiciones generadas y agregar números
                 for i, pos in enumerate(posiciones):
+                    inside = font.render(P.execute(probb, probi), True, (255, 255, 255)) 
+                    if i == 0:
+                        inside = font.render("L", True, (255, 255, 255))
                     x, y = pos
                     pygame.draw.rect(screen, cuadrado, (x, y, cuadrado_sizex, cuadrado_sizey))
+                    inside_rect = inside.get_rect(center=(x + cuadrado_sizex // 2, y + cuadrado_sizey // 2))
+                    screen.blit(inside, inside_rect)
 
-                    # Renderizar el número en el centro del cuadrado
-                    numero = font.render(str(i+1), True, (255, 255, 255))
-                    numero_rect = numero.get_rect(center=(x + cuadrado_sizex // 2, y + cuadrado_sizey // 2))
-                    screen.blit(numero, numero_rect)
+
+                # P.inside_room(posiciones, x, y, cuadrado_sizex, cuadrado_sizey, cuadrado, probb, probi, screen)
+                # Dibujar los cuadrados en las posiciones generadas y agregar números
+                # for i, pos in enumerate(posiciones):
+                #     x, y = pos
+                #     pygame.draw.rect(screen, cuadrado, (x, y, cuadrado_sizex, cuadrado_sizey))
+
+                #     # Renderizar el número en el centro del cuadrado
+                #     numero = font.render("1", True, (255, 255, 255))
+                #     numero_rect = numero.get_rect(center=(x + cuadrado_sizex // 2, y + cuadrado_sizey // 2))
+                #     screen.blit(numero, numero_rect)
 
                 pygame.display.flip()
+                
         except:
             pass
 
 
+
 def grafico():
-    global background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado
-    graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado)
+    global background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi
+    graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi)
 
 def gen():
     global width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados
