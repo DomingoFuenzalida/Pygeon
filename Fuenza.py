@@ -54,7 +54,7 @@ for _ in range(num_cuadrados):
             break
         contador += 1
 
-    posiciones.append((x, y))
+    posiciones.append([x, y])
 
 def coordenadas():
     global posiciones
@@ -63,23 +63,26 @@ def coordenadas():
 
 # Cargar una fuente de texto
 font = pygame.font.Font(None, 36)
+try:
+    while True:
+        
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                
 
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+        screen.fill(background_color)
 
-    screen.fill(background_color)
+        # Dibujar los cuadrados en las posiciones generadas y agregar números
+        for i, pos in enumerate(posiciones):
+            x, y = pos
+            pygame.draw.rect(screen, (255, 0, 0), (x, y, cuadrado_size, cuadrado_size))
 
-    # Dibujar los cuadrados en las posiciones generadas y agregar números
-    for i, pos in enumerate(posiciones):
-        x, y = pos
-        pygame.draw.rect(screen, (255, 0, 0), (x, y, cuadrado_size, cuadrado_size))
+            # Renderizar el número en el centro del cuadrado
+            numero = font.render(str(i+1), True, (255, 255, 255))
+            numero_rect = numero.get_rect(center=(x + cuadrado_size // 2, y + cuadrado_size // 2))
+            screen.blit(numero, numero_rect)
 
-        # Renderizar el número en el centro del cuadrado
-        numero = font.render(str(i+1), True, (255, 255, 255))
-        numero_rect = numero.get_rect(center=(x + cuadrado_size // 2, y + cuadrado_size // 2))
-        screen.blit(numero, numero_rect)
-
-    pygame.display.flip()
+        pygame.display.flip()
+except:
+    pass
