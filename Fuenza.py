@@ -56,6 +56,11 @@ for _ in range(num_cuadrados):
 
     posiciones.append((x, y))
 
+def coordenadas():
+    global posiciones
+    return posiciones
+
+
 # Cargar una fuente de texto
 font = pygame.font.Font(None, 36)
 
