@@ -2,10 +2,10 @@ import pygame
 import random
 
 def execute(prob_bosss, prob_loots):
-    random = random.randint(0, 1)
-    if random <= prob_bosss:
+    random1 = random.random(0, 1)
+    if random1 <= prob_bosss:
         return ("B")
-    elif random <= prob_loots + prob_bosss:
+    elif random1 <= prob_loots + prob_bosss:
         return ("L")
     else:
         return ("F")
