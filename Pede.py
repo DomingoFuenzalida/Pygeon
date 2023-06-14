@@ -16,6 +16,6 @@ def inside_room(posiciones, x, y, cuadrado_sizex, cuadrado_sizey, cuadrado, prob
         if i == 0:
             inside = "L"
         x, y = pos
-        pygame.draw.rect(screen, cuadrado, (x, y, cuadrado_sizex, cuadrado_sizey)
+        pygame.draw.rect(screen, cuadrado, x, y, cuadrado_sizex, cuadrado_sizey)
         inside_rect = inside.get_rect(center=(x + cuadrado_sizex // 2, y + cuadrado_sizey // 2))
         screen.blit(inside, inside_rect)
