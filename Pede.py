@@ -1,18 +1,18 @@
 import pygame
 import random
 
-def execute(prob_bosss, prob_loots, font):
+def execute(prob_bosss, prob_loots):
     random = random.randint(0, 1)
     if random <= prob_bosss:
-        inside = font.render("B", True, (255, 255, 255))
+        inside = return("B")
     elif random <= prob_loots + prob_bosss:
-        inside = font.render("L", True, (255, 255, 255))
+        inside = return("B")
     else:
-        inside = font.render("P", True, (255, 255, 255))
+        inside = return("B")
 
 def inside_room(posiciones, x, y, cuadrado_sizex, cuadrado_sizey, cuadrado, prob_boss, prob_item, screen, font):
     for i, pos in enumerate(posiciones):
-        inside = execute(prob_boss, prob_item, font)
+        inside = font.render(execute(prob_boss, prob_item), True, (255, 255, 255)) 
         if i == 0:
             inside = font.render("L", True, (255, 255, 255))
         x, y = pos
