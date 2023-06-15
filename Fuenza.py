@@ -20,6 +20,7 @@ def probit(prob):
         probi = prob
     else:
         print("La probabilidad es muy alta, intenta con otro número o cambiando la de los boses")
+        return False
 
 def probbo(prob):
     global probb
@@ -28,6 +29,7 @@ def probbo(prob):
         probb = prob
     else:
         print("La probabilidad es muy alta, intenta con otro número o cambiando la de los items")
+        return False
 
 # Tamaño de los cuadrados
 cuadrado_sizex = 50
