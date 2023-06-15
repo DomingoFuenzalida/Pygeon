@@ -79,6 +79,7 @@ def se_cruzan(x1, y1, x2, y2, sizex, sizey):
     return False
 
 def generación(width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados):
+
     # Generar posiciones aleatorias para los cuadrados
     global posiciones
     global se_cruza
@@ -180,5 +181,10 @@ def grafico():
     graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi)
 
 def gen():
-    global width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados
-    return generación(width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados)
+    try:
+        global width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados
+        generación(width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados)
+        return True
+    except:
+        print("mucho")
+        return False
