@@ -140,8 +140,17 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                     font_color.append((200,0,0))
                 elif emoji == "🤯":
                     font_color.append((255,255,0))
-
-            pasillos = H.triangular(posiciones, cuadrado_sizex, cuadrado_sizey)
+            pasillos = []
+            pasillo = H.triangular(posiciones, cuadrado_sizex, cuadrado_sizey)
+            for i in pasillo:
+                tempa = []
+                tempa.append([i[0][0],i[0][1]])
+                tempa.append([i[0][0],i[1][1]])
+                pasillos.append(tempa)
+                tempa = []
+                tempa.append([i[0][0],i[1][1]])
+                tempa.append([i[1][0],i[1][1]])
+                pasillos.append(tempa)
             print(pasillos)
                     
                 
@@ -154,7 +163,7 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                 screen.fill(background_color)
 
                 for i in pasillos:
-                    pygame.draw.line(screen, (100,100,100), i[0], i[1], 5)
+                    pygame.draw.line(screen, (100,100,100), i[0], i[1], 20)
 
                 for i, pos in enumerate(posiciones):
                     inside = font.render(contenido[i], True, font_color[i]) 
