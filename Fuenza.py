@@ -2,12 +2,14 @@ import pygame
 import random
 import Pede as P
 
+
 pygame.init()
 
 # Dimensiones de la ventana
 width = pygame.display.Info().current_w
 height =  pygame.display.Info().current_h-60
-
+icon = pygame.image.load("icono.ico")
+pygame.display.set_icon(icon)
 posiciones = []
 probb = 0.3
 probi = 0.3
@@ -53,7 +55,7 @@ def cambio_ventana(w, h):
     width = w
     height = h
 
-cuadrado = (255, 0, 0)
+cuadrado = (0, 0, 0)
 def habitacion(r,g,b):
     global cuadrado
     cuadrado = (r,g,b)
@@ -123,8 +125,18 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
     if se_cruza == False:
         try:
             contenido = []
+            font_color = []
             for i, pos in enumerate(posiciones):
-                contenido.append(P.execute(probb, probi))
+                emoji = P.execute(probb, probi)
+                contenido.append(emoji)
+                if emoji == "💎":
+                    font_color.append((60, 60, 255))
+                elif emoji == "👹":
+                    font_color.append((200,0,0))
+                elif emoji == "🤯":
+                    font_color.append((255,255,0))
+                
+                
             while True:
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
@@ -132,9 +144,9 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
 
                 screen.fill(background_color)
                 for i, pos in enumerate(posiciones):
-                    inside = font.render(contenido[i], True, (255, 255, 255)) 
+                    inside = font.render(contenido[i], True, font_color[i]) 
                     if i == 0:
-                        inside = font.render("💎", True, (255, 255, 255))
+                        inside = font.render("💎", True, (60, 60, 255))
                     x, y = pos
                     pygame.draw.rect(screen, cuadrado, (x, y, cuadrado_sizex, cuadrado_sizey))
                     inside_rect = inside.get_rect(center=(x + cuadrado_sizex // 2, y + cuadrado_sizey // 2))
