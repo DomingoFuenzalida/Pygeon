@@ -32,6 +32,11 @@ def probbo(prob):
     else:
         print("La probabilidad es muy alta, intenta con otro número o cambiando la de los items")
         return False
+    
+grosor_pasillo = 10
+def grosor_pasillos(grosor):
+    global grosor_pasillo
+    grosor_pasillo = grosor
 
 # Tamaño de los cuadrados
 cuadrado_sizex = 150
@@ -122,7 +127,7 @@ def coordenadas():
 
 
 # Cargar una fuente de texto
-def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi):
+def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi, grosor_pasillos):
     pygame.init()
     screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption("Mazmorras")
@@ -151,7 +156,6 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                 tempa.append([i[0][0],i[1][1]])
                 tempa.append([i[1][0],i[1][1]])
                 pasillos.append(tempa)
-            print(pasillos)
                     
                 
                 
@@ -163,7 +167,7 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                 screen.fill(background_color)
 
                 for i in pasillos:
-                    pygame.draw.line(screen, (100,100,100), i[0], i[1], 20)
+                    pygame.draw.line(screen, (100,100,100), i[0], i[1], grosor_pasillos)
 
                 for i, pos in enumerate(posiciones):
                     inside = font.render(contenido[i], True, font_color[i]) 
