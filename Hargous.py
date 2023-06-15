@@ -128,7 +128,7 @@ def triangular(c,x,y):
         conexiones_punto = [conexion[1]]
         conec.append([punto,conexiones_punto[0]])
     return conec
-triangular()
+
 
 
 
