@@ -56,10 +56,11 @@ def p_statement_function(p):
             
     '''
     if p[1] == 'show':
+
         gen = F.gen()
-        if not gen:
+        if gen:
             F.grafico()
-        
+
     elif p[1] == 'window_size':
         # Acciones para la palabra clave "window_size"
         width = p[2]
@@ -90,20 +91,24 @@ def p_statement_function(p):
         print(f'Se estableció el color para las habitaciones: {r},{g},{b}')
     elif p[1] == 'room_units':
         n = p[2]
+        
         F.cantidad(n)
         print(f'Se estableció el numero de habitaciones a: {n}')
     elif p[1] == 'item_chance':
         n = p[2]
         if 0 <= n <= 1:
-            F.probit(n)
-            print(f'Se estableció la probabilidad de ítem: {n}')
+            temp = F.probit(n)
+            if temp == True:
+                print(f'Se estableció la probabilidad de ítem: {n}')
         else:
             print('Error: La probabilidad de ítem debe estar entre 0 y 1')
     elif p[1] == 'boss_chance':
         n = p[2]
+
         if 0 <= n <= 1:
-            F.probbo(n)
-            print(f'Se estableció la probabilidad de boss: {n}')
+            temp = F.probbo(n)
+            if temp == True:
+                print(f'Se estableció la probabilidad de boss: {n}')
         else:
             print('Error: La probabilidad de ítem debe estar entre 0 y 1')
 def p_error(p):
@@ -116,7 +121,7 @@ parser = yacc()
 
 # Bucle de ejecución continua
 while True:
-    input_text = input('')
+    input_text = input('> ')
 
     lexer.input(input_text)
     parser.parse(input_text, lexer=lexer)
