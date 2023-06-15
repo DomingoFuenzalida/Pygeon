@@ -178,7 +178,7 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
 
 def grafico():
     global background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi
-    graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi)
+    return graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi)
 
 def gen():
     global width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados
