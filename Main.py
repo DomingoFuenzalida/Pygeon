@@ -13,7 +13,7 @@ keywords = {
     'room_units': 'ROOM_UNITS',
     'item_chance': 'ITEM_CHANCE',
     'boss_chance': 'BOSS_CHANCE',
-    'passsage_width': 'PASSAGE_WIDTH'
+    'passage_width': 'PASSAGE_WIDTH'
 }
 
 tokens = [
