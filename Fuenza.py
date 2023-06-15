@@ -17,7 +17,7 @@ def probit(prob):
     if probb + prob <= 1:
         probi = prob
     else:
-        print("La probabilidad es muy alta, intenta con otro número o cambiano la de los boses")
+        print("La probabilidad es muy alta, intenta con otro número o cambiando la de los boses")
 
 def probbo(prob):
     global probb
@@ -25,7 +25,7 @@ def probbo(prob):
     if probi + prob <= 1:
         probb = prob
     else:
-        print("La probabilidad es muy alta, intenta con otro número o cambiano la de los items")
+        print("La probabilidad es muy alta, intenta con otro número o cambiando la de los items")
 
 # Tamaño de los cuadrados
 cuadrado_sizex = 50
@@ -118,7 +118,7 @@ def coordenadas():
 def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi):
     pygame.init()
     screen = pygame.display.set_mode((width, height))
-    pygame.display.set_caption("Cuadrados Numerados")
+    pygame.display.set_caption("Mazmorras")
     font = pygame.font.Font(None, 25)
     if se_cruza == False:
         try:
