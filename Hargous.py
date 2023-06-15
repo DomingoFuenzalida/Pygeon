@@ -127,7 +127,18 @@ def triangular(c,x,y):
         punto = conexion[0]
         conexiones_punto = [conexion[1]]
         conec.append([punto,conexiones_punto[0]])
+    pas = []
+    general = []
+    for i in conec:
+        pas.append(i[0])
+        pas.append([i[0][1],i[1][0]])
+    conec= []
+    conec.append8(pas)
+    print(conec)
     return conec
+
+
+
 
 
 
