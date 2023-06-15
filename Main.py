@@ -1,4 +1,5 @@
 import Fuenza as F
+print("\U0001F92F")
 while True:
     user = input()
     user = user.split(" ")

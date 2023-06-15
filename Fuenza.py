@@ -119,7 +119,7 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
     pygame.init()
     screen = pygame.display.set_mode((width, height))
     pygame.display.set_caption("Mazmorras")
-    font = pygame.font.Font(None, 25)
+    font = pygame.font.Font("NotoEmoji-Medium.ttf", 25)
     if se_cruza == False:
         try:
             contenido = []
@@ -134,7 +134,7 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                 for i, pos in enumerate(posiciones):
                     inside = font.render(contenido[i], True, (255, 255, 255)) 
                     if i == 0:
-                        inside = font.render("L", True, (255, 255, 255))
+                        inside = font.render("💎", True, (255, 255, 255))
                     x, y = pos
                     pygame.draw.rect(screen, cuadrado, (x, y, cuadrado_sizex, cuadrado_sizey))
                     inside_rect = inside.get_rect(center=(x + cuadrado_sizex // 2, y + cuadrado_sizey // 2))
