@@ -20,9 +20,9 @@ def triangular(c,x,y):
     c = np.array(c)
 
     coor = []
-    correccion = np.array([x, y])
+    correccion = np.array([x/2, y/2])
     for i in c:
-        coor.append(i)
+        coor.append(i+correccion)
     coor = np.array(coor)
     #print(coor)
 
