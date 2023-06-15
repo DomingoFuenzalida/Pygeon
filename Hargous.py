@@ -1,4 +1,3 @@
-import Fuenza
 import numpy as np
 from scipy.spatial import Delaunay
 import matplotlib.pyplot as plt
@@ -17,11 +16,11 @@ def unir_componentes(componentes, nodo1, nodo2):
     
 
 #Funcion General
-def triangular():
-    #c = np.array(Fuenza.coordenadas())
-    c = np.array([[25, 18],[33,5],[2,1],[1,9],[9,6],[20,6],[14,45],[15,16],[40,19],[20,15],[35,24]])
+def triangular(c,x,y):
+    c = np.array(c)
+
     coor = []
-    correccion = np.array([Fuenza.cuadrado_sizex, Fuenza.cuadrado_sizey])
+    correccion = np.array([x, y])
     for i in c:
         coor.append(i+correccion)
     coor = np.array(coor)
