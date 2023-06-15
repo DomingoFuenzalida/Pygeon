@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'BK_COLOR BOSS_CHANCE EXIT GRAFICAR ID ITEM_CHANCE NUMBER ROOM_COLOR ROOM_SIZE ROOM_UNITS WINDOW_SIZE\n    statement : GRAFICAR\n              | WINDOW_SIZE NUMBER NUMBER\n              | EXIT\n              | ROOM_SIZE NUMBER NUMBER\n              | BK_COLOR NUMBER NUMBER NUMBER\n              | ROOM_COLOR NUMBER NUMBER NUMBER\n              | ROOM_UNITS NUMBER\n              | ITEM_CHANCE NUMBER\n              | BOSS_CHANCE NUMBER\n            \n    '
+_lr_signature = 'BK_COLOR BOSS_CHANCE EXIT GRAFICAR ID ITEM_CHANCE NUMBER PASSAGE_WIDTH ROOM_COLOR ROOM_SIZE ROOM_UNITS WINDOW_SIZE\n    statement : GRAFICAR\n              | WINDOW_SIZE NUMBER NUMBER\n              | EXIT\n              | ROOM_SIZE NUMBER NUMBER\n              | BK_COLOR NUMBER NUMBER NUMBER\n              | ROOM_COLOR NUMBER NUMBER NUMBER\n              | ROOM_UNITS NUMBER\n              | ITEM_CHANCE NUMBER\n              | BOSS_CHANCE NUMBER\n              | PASSAGE_WIDTH NUMBER\n            \n    '
     
-_lr_action_items = {'GRAFICAR':([0,],[2,]),'WINDOW_SIZE':([0,],[3,]),'EXIT':([0,],[4,]),'ROOM_SIZE':([0,],[5,]),'BK_COLOR':([0,],[6,]),'ROOM_COLOR':([0,],[7,]),'ROOM_UNITS':([0,],[8,]),'ITEM_CHANCE':([0,],[9,]),'BOSS_CHANCE':([0,],[10,]),'$end':([1,2,4,15,16,17,18,19,22,23,],[0,-1,-3,-7,-8,-9,-2,-4,-5,-6,]),'NUMBER':([3,5,6,7,8,9,10,11,12,13,14,20,21,],[11,12,13,14,15,16,17,18,19,20,21,22,23,]),}
+_lr_action_items = {'GRAFICAR':([0,],[2,]),'WINDOW_SIZE':([0,],[3,]),'EXIT':([0,],[4,]),'ROOM_SIZE':([0,],[5,]),'BK_COLOR':([0,],[6,]),'ROOM_COLOR':([0,],[7,]),'ROOM_UNITS':([0,],[8,]),'ITEM_CHANCE':([0,],[9,]),'BOSS_CHANCE':([0,],[10,]),'PASSAGE_WIDTH':([0,],[11,]),'$end':([1,2,4,16,17,18,19,20,21,24,25,],[0,-1,-3,-7,-8,-9,-10,-2,-4,-5,-6,]),'NUMBER':([3,5,6,7,8,9,10,11,12,13,14,15,22,23,],[12,13,14,15,16,17,18,19,20,21,22,23,24,25,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -27,13 +27,14 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> statement","S'",1,None,None,None),
-  ('statement -> GRAFICAR','statement',1,'p_statement_function','Main.py',47),
-  ('statement -> WINDOW_SIZE NUMBER NUMBER','statement',3,'p_statement_function','Main.py',48),
-  ('statement -> EXIT','statement',1,'p_statement_function','Main.py',49),
-  ('statement -> ROOM_SIZE NUMBER NUMBER','statement',3,'p_statement_function','Main.py',50),
-  ('statement -> BK_COLOR NUMBER NUMBER NUMBER','statement',4,'p_statement_function','Main.py',51),
-  ('statement -> ROOM_COLOR NUMBER NUMBER NUMBER','statement',4,'p_statement_function','Main.py',52),
-  ('statement -> ROOM_UNITS NUMBER','statement',2,'p_statement_function','Main.py',53),
-  ('statement -> ITEM_CHANCE NUMBER','statement',2,'p_statement_function','Main.py',54),
-  ('statement -> BOSS_CHANCE NUMBER','statement',2,'p_statement_function','Main.py',55),
+  ('statement -> GRAFICAR','statement',1,'p_statement_function','Main.py',48),
+  ('statement -> WINDOW_SIZE NUMBER NUMBER','statement',3,'p_statement_function','Main.py',49),
+  ('statement -> EXIT','statement',1,'p_statement_function','Main.py',50),
+  ('statement -> ROOM_SIZE NUMBER NUMBER','statement',3,'p_statement_function','Main.py',51),
+  ('statement -> BK_COLOR NUMBER NUMBER NUMBER','statement',4,'p_statement_function','Main.py',52),
+  ('statement -> ROOM_COLOR NUMBER NUMBER NUMBER','statement',4,'p_statement_function','Main.py',53),
+  ('statement -> ROOM_UNITS NUMBER','statement',2,'p_statement_function','Main.py',54),
+  ('statement -> ITEM_CHANCE NUMBER','statement',2,'p_statement_function','Main.py',55),
+  ('statement -> BOSS_CHANCE NUMBER','statement',2,'p_statement_function','Main.py',56),
+  ('statement -> PASSAGE_WIDTH NUMBER','statement',2,'p_statement_function','Main.py',57),
 ]

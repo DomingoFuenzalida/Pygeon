@@ -16,6 +16,7 @@ Rule 6     statement -> ROOM_COLOR NUMBER NUMBER NUMBER
 Rule 7     statement -> ROOM_UNITS NUMBER
 Rule 8     statement -> ITEM_CHANCE NUMBER
 Rule 9     statement -> BOSS_CHANCE NUMBER
+Rule 10    statement -> PASSAGE_WIDTH NUMBER
 
 Terminals, with rules where they appear
 
@@ -25,7 +26,8 @@ EXIT                 : 3
 GRAFICAR             : 1
 ID                   : 
 ITEM_CHANCE          : 8
-NUMBER               : 2 2 4 4 5 5 5 6 6 6 7 8 9
+NUMBER               : 2 2 4 4 5 5 5 6 6 6 7 8 9 10
+PASSAGE_WIDTH        : 10
 ROOM_COLOR           : 6
 ROOM_SIZE            : 4
 ROOM_UNITS           : 7
@@ -50,6 +52,7 @@ state 0
     (7) statement -> . ROOM_UNITS NUMBER
     (8) statement -> . ITEM_CHANCE NUMBER
     (9) statement -> . BOSS_CHANCE NUMBER
+    (10) statement -> . PASSAGE_WIDTH NUMBER
 
     GRAFICAR        shift and go to state 2
     WINDOW_SIZE     shift and go to state 3
@@ -60,6 +63,7 @@ state 0
     ROOM_UNITS      shift and go to state 8
     ITEM_CHANCE     shift and go to state 9
     BOSS_CHANCE     shift and go to state 10
+    PASSAGE_WIDTH   shift and go to state 11
 
     statement                      shift and go to state 1
 
@@ -80,7 +84,7 @@ state 3
 
     (2) statement -> WINDOW_SIZE . NUMBER NUMBER
 
-    NUMBER          shift and go to state 11
+    NUMBER          shift and go to state 12
 
 
 state 4
@@ -94,129 +98,143 @@ state 5
 
     (4) statement -> ROOM_SIZE . NUMBER NUMBER
 
-    NUMBER          shift and go to state 12
+    NUMBER          shift and go to state 13
 
 
 state 6
 
     (5) statement -> BK_COLOR . NUMBER NUMBER NUMBER
 
-    NUMBER          shift and go to state 13
+    NUMBER          shift and go to state 14
 
 
 state 7
 
     (6) statement -> ROOM_COLOR . NUMBER NUMBER NUMBER
 
-    NUMBER          shift and go to state 14
+    NUMBER          shift and go to state 15
 
 
 state 8
 
     (7) statement -> ROOM_UNITS . NUMBER
 
-    NUMBER          shift and go to state 15
+    NUMBER          shift and go to state 16
 
 
 state 9
 
     (8) statement -> ITEM_CHANCE . NUMBER
 
-    NUMBER          shift and go to state 16
+    NUMBER          shift and go to state 17
 
 
 state 10
 
     (9) statement -> BOSS_CHANCE . NUMBER
 
-    NUMBER          shift and go to state 17
+    NUMBER          shift and go to state 18
 
 
 state 11
 
-    (2) statement -> WINDOW_SIZE NUMBER . NUMBER
-
-    NUMBER          shift and go to state 18
-
-
-state 12
-
-    (4) statement -> ROOM_SIZE NUMBER . NUMBER
+    (10) statement -> PASSAGE_WIDTH . NUMBER
 
     NUMBER          shift and go to state 19
 
 
-state 13
+state 12
 
-    (5) statement -> BK_COLOR NUMBER . NUMBER NUMBER
+    (2) statement -> WINDOW_SIZE NUMBER . NUMBER
 
     NUMBER          shift and go to state 20
 
 
-state 14
+state 13
 
-    (6) statement -> ROOM_COLOR NUMBER . NUMBER NUMBER
+    (4) statement -> ROOM_SIZE NUMBER . NUMBER
 
     NUMBER          shift and go to state 21
 
 
+state 14
+
+    (5) statement -> BK_COLOR NUMBER . NUMBER NUMBER
+
+    NUMBER          shift and go to state 22
+
+
 state 15
+
+    (6) statement -> ROOM_COLOR NUMBER . NUMBER NUMBER
+
+    NUMBER          shift and go to state 23
+
+
+state 16
 
     (7) statement -> ROOM_UNITS NUMBER .
 
     $end            reduce using rule 7 (statement -> ROOM_UNITS NUMBER .)
 
 
-state 16
+state 17
 
     (8) statement -> ITEM_CHANCE NUMBER .
 
     $end            reduce using rule 8 (statement -> ITEM_CHANCE NUMBER .)
 
 
-state 17
+state 18
 
     (9) statement -> BOSS_CHANCE NUMBER .
 
     $end            reduce using rule 9 (statement -> BOSS_CHANCE NUMBER .)
 
 
-state 18
+state 19
+
+    (10) statement -> PASSAGE_WIDTH NUMBER .
+
+    $end            reduce using rule 10 (statement -> PASSAGE_WIDTH NUMBER .)
+
+
+state 20
 
     (2) statement -> WINDOW_SIZE NUMBER NUMBER .
 
     $end            reduce using rule 2 (statement -> WINDOW_SIZE NUMBER NUMBER .)
 
 
-state 19
+state 21
 
     (4) statement -> ROOM_SIZE NUMBER NUMBER .
 
     $end            reduce using rule 4 (statement -> ROOM_SIZE NUMBER NUMBER .)
 
 
-state 20
+state 22
 
     (5) statement -> BK_COLOR NUMBER NUMBER . NUMBER
 
-    NUMBER          shift and go to state 22
+    NUMBER          shift and go to state 24
 
 
-state 21
+state 23
 
     (6) statement -> ROOM_COLOR NUMBER NUMBER . NUMBER
 
-    NUMBER          shift and go to state 23
+    NUMBER          shift and go to state 25
 
 
-state 22
+state 24
 
     (5) statement -> BK_COLOR NUMBER NUMBER NUMBER .
 
     $end            reduce using rule 5 (statement -> BK_COLOR NUMBER NUMBER NUMBER .)
 
 
-state 23
+state 25
 
     (6) statement -> ROOM_COLOR NUMBER NUMBER NUMBER .
 

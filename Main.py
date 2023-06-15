@@ -12,7 +12,8 @@ keywords = {
     'room_color': 'ROOM_COLOR',
     'room_units': 'ROOM_UNITS',
     'item_chance': 'ITEM_CHANCE',
-    'boss_chance': 'BOSS_CHANCE'
+    'boss_chance': 'BOSS_CHANCE',
+    'passsage_width': 'PASSAGE_WIDTH'
 }
 
 tokens = [
@@ -53,6 +54,7 @@ def p_statement_function(p):
               | ROOM_UNITS NUMBER
               | ITEM_CHANCE NUMBER
               | BOSS_CHANCE NUMBER
+              | PASSAGE_WIDTH NUMBER
             
     '''
     if p[1] == 'show':
@@ -111,6 +113,10 @@ def p_statement_function(p):
                 print(f'Se estableció la probabilidad de boss: {n}')
         else:
             print('Error: La probabilidad de ítem debe estar entre 0 y 1')
+    elif p[1] == 'passage_width':
+        n = p[2]
+        F.grosor_pasillos(n)
+        print(f'Se estableció el ancho de los pasillos: {n}')
 def p_error(p):
     if p:
         print(f'Error de sintaxis en el token "{p.value}"')
