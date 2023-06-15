@@ -142,6 +142,7 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                     font_color.append((255,255,0))
 
             pasillos = H.triangular(posiciones, cuadrado_sizex, cuadrado_sizey)
+            print(pasillos)
                     
                 
                 
