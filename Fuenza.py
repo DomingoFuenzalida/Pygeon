@@ -36,7 +36,7 @@ def probbo(prob):
 grosor_pasillo = 10
 def grosor_pasillos(grosor):
     global grosor_pasillo
-    grosor_pasillo = grosor
+    grosor_pasillo = int(grosor)
 
 # Tamaño de los cuadrados
 cuadrado_sizex = 150
@@ -189,8 +189,8 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
 
 
 def grafico():
-    global background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi
-    return graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi)
+    global background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi, grosor_pasillo
+    return graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi, grosor_pasillo)
 
 def gen():
     global width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados
