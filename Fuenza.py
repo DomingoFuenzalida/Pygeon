@@ -18,6 +18,7 @@ def probit(prob):
     global probb
     if probb + prob <= 1:
         probi = prob
+        return True
     else:
         print("La probabilidad es muy alta, intenta con otro número o cambiando la de los boses")
         return False
@@ -27,6 +28,7 @@ def probbo(prob):
     global probi
     if probi + prob <= 1:
         probb = prob
+        return True
     else:
         print("La probabilidad es muy alta, intenta con otro número o cambiando la de los items")
         return False
