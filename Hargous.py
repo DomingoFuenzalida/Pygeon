@@ -22,7 +22,7 @@ def triangular(c,x,y):
     coor = []
     correccion = np.array([x, y])
     for i in c:
-        coor.append(i+correccion)
+        coor.append(i)
     coor = np.array(coor)
     #print(coor)
 
