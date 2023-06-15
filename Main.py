@@ -58,7 +58,7 @@ def p_statement_function(p):
     if p[1] == 'show':
 
         gen = F.gen()
-        if gen:
+        if not gen:
             F.grafico()
 
     elif p[1] == 'window_size':
