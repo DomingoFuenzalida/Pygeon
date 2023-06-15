@@ -20,4 +20,3 @@ def inside_room(posiciones, x, y, cuadrado_sizex, cuadrado_sizey, cuadrado, prob
         inside_rect = inside.get_rect(center=(x + cuadrado_sizex // 2, y + cuadrado_sizey // 2))
         screen.blit(inside, inside_rect)
 
-print("\U00002728")
