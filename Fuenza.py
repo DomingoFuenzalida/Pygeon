@@ -1,7 +1,7 @@
 import pygame
 import random
 import Pede as P
-
+import Hargous as H
 
 pygame.init()
 
@@ -34,8 +34,8 @@ def probbo(prob):
         return False
 
 # Tamaño de los cuadrados
-cuadrado_sizex = 50
-cuadrado_sizey = 50
+cuadrado_sizex = 150
+cuadrado_sizey = 150
 
 def cambiox(tamaño):
     global cuadrado_sizex
@@ -140,6 +140,9 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                     font_color.append((200,0,0))
                 elif emoji == "🤯":
                     font_color.append((255,255,0))
+
+            pasillos = H.triangular(posiciones, cuadrado_sizex, cuadrado_sizey)
+                    
                 
                 
             while True:
@@ -148,6 +151,10 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                         pygame.quit()
 
                 screen.fill(background_color)
+
+                for i in pasillos:
+                    pygame.draw.line(screen, (100,100,100), i[0], i[1], 5)
+
                 for i, pos in enumerate(posiciones):
                     inside = font.render(contenido[i], True, font_color[i]) 
                     if i == 0:
@@ -156,18 +163,9 @@ def graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, 
                     pygame.draw.rect(screen, cuadrado, (x, y, cuadrado_sizex, cuadrado_sizey))
                     inside_rect = inside.get_rect(center=(x + cuadrado_sizex // 2, y + cuadrado_sizey // 2))
                     screen.blit(inside, inside_rect)
+                
+                
 
-
-                # P.inside_room(posiciones, x, y, cuadrado_sizex, cuadrado_sizey, cuadrado, probb, probi, screen)
-                # Dibujar los cuadrados en las posiciones generadas y agregar números
-                # for i, pos in enumerate(posiciones):
-                #     x, y = pos
-                #     pygame.draw.rect(screen, cuadrado, (x, y, cuadrado_sizex, cuadrado_sizey))
-
-                #     # Renderizar el número en el centro del cuadrado
-                #     numero = font.render("1", True, (255, 255, 255))
-                #     numero_rect = numero.get_rect(center=(x + cuadrado_sizex // 2, y + cuadrado_sizey // 2))
-                #     screen.blit(numero, numero_rect)
 
                 pygame.display.flip()
                 
