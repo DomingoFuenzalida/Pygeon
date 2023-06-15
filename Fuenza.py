@@ -48,7 +48,7 @@ def cambioy(tamaño):
 num_cuadrados = 10
 def cantidad(numero):
     global num_cuadrados
-    num_cuadrados = numero - 1
+    num_cuadrados = int(numero) - 1
 
 
 
@@ -181,10 +181,5 @@ def grafico():
     graficar(background_color, posiciones, width, height, x, y, cuadrado_sizex, cuadrado_sizey, se_cruza, cuadrado, probb, probi)
 
 def gen():
-    try:
-        global width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados
-        generación(width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados)
-        return True
-    except:
-        print("mucho")
-        return False
+    global width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados
+    return generación(width,height,cuadrado_sizex,cuadrado_sizey,num_cuadrados)
